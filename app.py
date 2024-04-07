@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 import google.generativeai as genai
+import os
+from dotenv import load_dotenv
 
 model = genai.GenerativeModel('gemini-pro')
 
 import os
-my_api_key_gemini = os.getenv('my_new_api_key_here')
+my_api_key_gemini = os.getenv('api_key_gemini')
 
 genai.configure(api_key=my_api_key_gemini)
 
@@ -25,6 +27,7 @@ def index():
             response = model.generate_content(question)
 
             if response.text:
+                print(response.text)
                 return response.text
             else:
                 return "Sorry, but I think Gemini didn't want to answer that!"

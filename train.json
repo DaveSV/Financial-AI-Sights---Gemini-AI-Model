@@ -1,0 +1,42 @@
+{
+  "elements_of_financial_statements": {
+    "asset": "A present economic resource controlled by the entity as a result of past events which are expected to generate future economic benefits.",
+    "liability": "A present obligation of the entity to transfer an economic resource as a result of past events.",
+    "equity": "The residual interest in the assets of the entity after deducting all its liabilities.",
+    "income": "Increases in economic benefit during an accounting period in the form of inflows or enhancements of assets, or decrease of liabilities that result in increases in equity. However, it does not include the contributions made by the equity participants (for example owners, partners or shareholders).",
+    "expenses": "Decreases in assets, or increases in liabilities, that result in decreases in equity. However, these do not include the distributions made to the equity participants.",
+    "other_changes_in_economic_resources_and_claims": "Contributions from holders of equity and distributions to them."
+  },
+  "recognition_of_elements": {
+    "criteria": "An item is recognized in the financial statements when it is probable that future economic benefit will flow to or from an entity and the resource can be reliably measured.",
+    "additional_conditions": "In some cases specific standards add additional conditions before recognition is possible or prohibit recognition altogether.",
+    "exceptions": {
+      "internally_generated_intangibles": "Recognition is prohibited by IAS 38 for items like internally generated brands, mastheads, publishing titles, customer lists.",
+      "research_and_development_expenses": "Can only be recognised as an intangible asset if they cross the threshold of being classified as 'development cost'.",
+      "provisions_for_contingent_liabilities": "IAS 37 prohibits the recognition of a provision for contingent liabilities, except in a business combination where it is recognised even if an outflow of resources embodying economic benefits is not probable."
+    }
+  },
+  "concepts_of_capital_and_maintenance": {
+    "financial_capital_maintenance": "A profit is earned only if the financial amount of the net assets at the end of the period exceeds the financial amount of net assets at the beginning of the period, after excluding any distributions to, and contributions from owners during the period.",
+    "physical_capital_maintenance": "A profit is earned only if the physical productive capacity of the entity at the end of the period exceeds the physical productive capacity at the beginning of period, after excluding any distributions to, and contributions from owners during the period."
+  },
+  "requirements_of_IFRS": {
+    "presentation_of_financial_statements": {
+      "statement_of_financial_position": "A balance sheet.",
+      "statement_of_comprehensive_income": "This may be presented as a single statement or with a separate statement of profit and loss and a statement of other comprehensive income.",
+      "statement_of_changes_in_equity": "",
+      "statement_of_cash_flows": "",
+      "notes": "Including a summary of the significant accounting policies."
+    },
+    "general_features": {
+      "fair_presentation_and_compliance_with_IFRS": "Requires the faithful representation of the effects of the transactions, other events, and conditions.",
+      "going_concern": "Financial statements are presented on a going concern basis unless otherwise indicated.",
+      "accrual_basis_of_accounting": "Recognise items as assets, liabilities, equity, income, and expenses when they satisfy the definition and recognition criteria.",
+      "materiality_and_aggregation": "Every material class of similar items has to be presented separately.",
+      "offsetting": "Generally forbidden in IFRS, except when specific conditions are satisfied.",
+      "frequency_of_reporting": "At least annually a complete set of financial statements is presented.",
+      "comparative_information": "Comparative information is required in respect of the preceding period for all amounts reported in the current period's financial statements.",
+      "consistency_of_presentation": "The presentation and classification of items in the financial statements are retained from one period to the next unless a change is justified."
+    }
+  }
+}
