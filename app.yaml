@@ -8,5 +8,3 @@ handlers:
 - url: /.*
   script: auto
 
-env_variables:
-  api_key_gemini: ''
