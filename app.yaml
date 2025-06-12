@@ -9,4 +9,4 @@ handlers:
   script: auto
 
 env_variables:
-  api_key_gemini: 'AIzaSyABC-3kxeWrthO2UcFi2eiO5cIpWhmzDK0'
+  api_key_gemini: ''
