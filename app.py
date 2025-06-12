@@ -3,7 +3,7 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemma-3-1b-it')
 
 import os
 my_api_key_gemini = os.getenv('api_key_gemini')
