@@ -1,0 +1,12 @@
+runtime: python39  # Puedes seleccionar la versión de Python que necesites.
+entrypoint: gunicorn -b :$PORT app:app  # app:app debe apuntar a tu aplicación Flask.
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: auto
+
+env_variables:
+  api_key_gemini: 'AIzaSyABC-3kxeWrthO2UcFi2eiO5cIpWhmzDK0'
