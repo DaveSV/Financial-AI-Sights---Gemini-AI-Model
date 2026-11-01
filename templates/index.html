@@ -3,95 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial AI Sights - Analizador de Documentos</title>
-    <!-- Cargamos un estilo moderno y rápido usando un CDN de Tailwind CSS -->
-    <script src="https://tailwindcss.com"></script>
+    <title>Financial AI Sights - Analizador Financiero</title>
+    <!-- Enlazamos de forma nativa el archivo CSS guardado en la carpeta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
+<body>
 
-    <!-- Encabezado de la Plataforma -->
-    <header class="bg-slate-900 text-white p-6 shadow-md">
-        <div class="max-w-5xl mx-auto flex justify-between items-center">
+    <header>
+        <div class="header-container">
             <div>
-                <h1 class="text-2xl font-bold tracking-tight">Financial AI Sights</h1>
-                <p class="text-xs text-slate-400 mt-1">Plataforma de Analítica Financiera Avanzada</p>
+                <h1>Financial AI Sights</h1>
+                <p>Plataforma de Analítica Financiera Avanzada</p>
             </div>
-            <span class="bg-green-500 text-slate-900 text-xs px-3 py-1 rounded-full font-semibold">Plan Gratuito Activo</span>
+            <span class="badge">Plan Gratuito Activo</span>
         </div>
     </header>
 
-    <!-- Contenedor Principal -->
-    <main class="flex-1 max-w-5xl w-full mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <main>
+        <!-- Panel Izquierdo: Formulario -->
+        <section class="panel">
+            <h2>Análisis de Documento</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
 
-        <!-- Panel Izquierdo: Carga de Datos y Configuración -->
-        <section class="md:col-span-1 bg-white p-5 rounded-xl shadow-sm border border-gray-200 h-fit">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4">Análisis de Documento</h2>
-
-            <form action="/" method="POST" enctype="multipart/form-data" class="space-y-4" id="uploadForm">
-
-                <!-- Input de Archivo Estilizado -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Estado de cuenta / Flujo de efectivo</label>
-                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center bg-gray-50 hover:bg-gray-100 transition cursor-pointer relative">
-                        <input type="file" name="financial_file" id="financial_file" accept=".pdf, .png, .jpg, .jpeg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required>
-                        <div class="text-slate-500">
-                            <span class="text-2xl block">📄</span>
-                            <span class="text-xs font-semibold text-indigo-600 block mt-1">Seleccionar o arrastrar archivo</span>
-                            <span class="text-[10px] text-gray-400 block mt-0.5">(PDF, PNG, JPG)</span>
+                <div class="form-group">
+                    <label>Estado de cuenta / Flujo de efectivo</label>
+                    <div class="dropzone">
+                        <input type="file" name="financial_file" id="financial_file" accept=".pdf, .png, .jpg, .jpeg" required>
+                        <div class="dropzone-text">
+                            <span class="dropzone-icon">📄</span>
+                            <strong>Seleccionar o arrastrar archivo</strong>
+                            <div style="font-size: 11px; margin-top:4px;">(PDF, PNG, JPG)</div>
                         </div>
                     </div>
-                    <span id="fileName" class="text-xs text-green-600 font-medium mt-1 block"></span>
+                    <span id="fileName" style="display:block; margin-top:8px; font-size:12px; color:#16a34a; font-weight:500;"></span>
                 </div>
 
-                <!-- Campo de Texto para Instrucciones adicionales -->
-                <div>
-                    <label for="prompt" class="block text-sm font-medium text-gray-700 mb-1">Enfoque o instrucción (Opcional)</label>
-                    <textarea name="prompt" id="prompt" rows="3" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej. Detecta anomalías, resume los gastos más altos o analiza la liquidez disponible..."></textarea>
+                <div class="form-group">
+                    <label for="prompt">Enfoque o instrucción (Opcional)</label>
+                    <textarea name="prompt" id="prompt" rows="4" placeholder="Ej. Detecta anomalías, resume los gastos más altos o analiza la liquidez disponible..."></textarea>
                 </div>
 
-                <!-- Botón de Envío -->
-                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm py-2.5 px-4 rounded-lg shadow transition flex justify-center items-center gap-2">
-                    <span>Generar Resumen</span>
-                </button>
+                <button type="submit">Generar Resumen</button>
             </form>
         </section>
 
-        <!-- Panel Derecho: Visor de Resultados -->
-        <section class="md:col-span-2 flex flex-col bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-            <h2 class="text-lg font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                <span>📊</span> Resultados del Diagnóstico Financiero
-            </h2>
-
-            <!-- Zona de Respuesta -->
-            <div id="resultContent" class="flex-1 text-sm text-gray-700 leading-relaxed bg-gray-50 p-4 rounded-lg border border-gray-100 overflow-y-auto whitespace-pre-wrap">
-                <span class="text-gray-400 italic">Los resultados aparecerán aquí tras procesar el documento.</span>
+        <!-- Panel Derecho: Resultados -->
+        <section class="panel" style="display: flex; flex-direction: column;">
+            <h2>📊 Resultados del Diagnóstico Financiero</h2>
+            <div id="resultContent" class="result-box">
+                <span class="placeholder-text">Los resultados aparecerán aquí tras procesar el documento.</span>
             </div>
         </section>
     </main>
 
-    <!-- Script básico para mejorar la experiencia de usuario (AJAX) -->
     <script>
-        // Mostrar el nombre del archivo seleccionado en el formulario
+        // Mostrar el nombre del archivo seleccionado en pantalla
         document.getElementById('financial_file').addEventListener('change', function(e) {
-            const name = e.target.files[0] ? e.target.files[0].name : '';
-            document.getElementById('fileName').textContent = name ? `Archivo cargado: ${name}` : '';
+            const file = e.target.files[0];
+            document.getElementById('fileName').textContent = file ? `Archivo cargado: ${file.name}` : '';
         });
 
-        // Enviar el formulario vía AJAX para no recargar la página completa
+        // Enviar datos vía AJAX sin recargar la página entera
         document.getElementById('uploadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             const resultContent = document.getElementById('resultContent');
-            resultContent.innerHTML = '<span class="text-indigo-600 animate-pulse font-medium">Analizando balances y procesando transacciones con Gemini...</span>';
+            resultContent.innerHTML = '<span class="loading-text">Analizando balances y procesando transacciones con Gemini...</span>';
 
             const formData = new FormData(this);
             try {
-                const response = await fetch('/', { method: 'POST', body: formData });
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData
+                });
                 const text = await response.text();
                 resultContent.textContent = text;
             } catch (error) {
-                resultContent.innerHTML = '<span class="text-red-500 font-medium">Ocurrió un error al intentar conectar con el servidor de análisis.</span>';
+                resultContent.innerHTML = '<span style="color:#dc2626; font-weight:500;">Ocurrió un error al intentar conectar con el servidor de análisis.</span>';
             }
         });
     </script>
 </body>
 </html>
+
