@@ -57,8 +57,9 @@ jobs:
       contents: read
 
     steps:
+      # 🛠️ CORREGIDO: Se cambió 'azure/download-artifact@v4' por 'actions/download-artifact@v4'
       - name: Download artifact from build job
-        uses: azure/download-artifact@v4
+        uses: actions/download-artifact@v4
         with:
           name: python-app
 
@@ -69,12 +70,12 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D2495CF3071844DB84932939B004CD37 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A92E8C5ADE924E59B6B4AB94C6E5C17E }}
 
-        # 🔑 ¡PASO NUEVO NUEVO! Esto inyecta el Secreto de GitHub en los App Settings de Azure
+      # 🔑 Inyecta el Secreto de GitHub en los App Settings de Azure
       - name: 'Configure Azure App Service Settings'
         uses: azure/appservice-settings@v1
         with:
           app-name: 'FinancialAISights'
-          slot-name: 'Production' # Elimina esta línea si no estás usando slots de despliegue
+          slot-name: 'Production'
           app-settings-json: |
             [
               {
