@@ -42,6 +42,15 @@
                     <label for="prompt">Enfoque o instrucción (Opcional)</label>
                     <textarea name="prompt" id="prompt" rows="4" placeholder="Ej. Detecta anomalías, resume los gastos más altos o analiza la liquidez disponible..."></textarea>
                 </div>
+<div class="privacy-notice-box" style="background-color: #fffbeb; border: 1px solid #fef3c7; border-radius: 8px; padding: 12px; margin-bottom: 16px; margin-top: 8px;">
+    <p style="margin: 0; font-size: 11px; line-height: 1.5; color: #b45309; font-weight: 500;">
+        ⚠️ <strong>AVISO DE PRIVACIDAD & SEGURIDAD DE DATOS:</strong><br>
+        Los estados de cuenta y flujos de efectivo contienen información financiera sensible. Este sistema tiene
+        <strong>fines estrictamente demostrativos y educativos</strong> para ilustrar el alcance de la Inteligencia Artificial
+        en la analítica de documentos. Los archivos se procesan mediante las APIs de Google Gemini.
+        Por seguridad, se recomienda utilizar únicamente plantillas ficticias, estados de cuenta de prueba o documentos anonimizados.
+    </p>
+</div>
 
                 <button type="submit">Generar Resumen</button>
             </form>
@@ -82,6 +91,17 @@
             }
         });
     </script>
+
+ <footer style="background-color: #0f172a; color: #64748b; font-size: 11px; text-align: center; padding: 16px 20px; border-top: 1px solid #1e293b; margin-top: auto;">
+        <div style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 6px; justify-content: center; align-items: center;">
+            <p style="margin: 0; color: #94a3b8; font-weight: 500;">Financial AI Sights &copy; 2026 — Entorno de Pruebas de Concepto (PoC)</p>
+            <p style="margin: 0; max-width: 600px; line-height: 1.4;">
+                Este prototipo web utiliza el SDK oficial google-genai sobre infraestructura Linux en la nube.
+                Los análisis generados son estimaciones probabilísticas automatizadas y no constituyen asesoría contable, legal ni financiera formal.
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
 
