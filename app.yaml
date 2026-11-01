@@ -1,4 +1,4 @@
-runtime: python39  # Puedes seleccionar la versión de Python que necesites.
+runtime: python312  # Puedes seleccionar la versión de Python que necesites.
 entrypoint: gunicorn -b :$PORT app:app  # app:app debe apuntar a tu aplicación Flask.
 
 handlers:
