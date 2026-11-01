@@ -6,7 +6,7 @@ from google.genai import types
 
 load_dotenv()
 
-my_api_key_gemini = os.getenv('api_key_gemini')
+my_api_key_gemini = os.getenv('api_key_gemini') or os.getenv('GEMINI_API_KEY')
 client = genai.Client(api_key=my_api_key_gemini)
 
 app = Flask(__name__)
